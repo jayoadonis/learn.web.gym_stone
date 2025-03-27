@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit bootstrap="vendor/autoload.php" colors="true" verbose="true">
+    <testsuites>
+        <testsuite name="learn.web.gym_stone.test">
+            <directory>
+                src/test/php/learn/web/gym_stone/test/
+            </directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
