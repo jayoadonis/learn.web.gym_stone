@@ -3,7 +3,8 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "learn\\web\\gym_stone\\": "src/learn/web/gym_stone/"
+            "learn\\web\\gym_stone\\": "src/main/php/learn/web/gym_stone/",
+            "public\\learn\\web\\gym_stone\\": "public/"
         }
     },
     "authors": [
