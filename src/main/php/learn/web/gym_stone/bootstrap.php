@@ -70,7 +70,9 @@ function trigger_error_handler(
     return true;
 }
 
-set_error_handler( trigger_error_handler(...) );
+// set_error_handler( trigger_error_handler(...) );
+
+set_error_handler( __NAMESPACE__ . "\\trigger_error_handler");
 
 
 $autoloadFilepath = realpath( __DIR__ . "/../../../../../../vendor/autoload.php");
