@@ -21,6 +21,7 @@ class GymStone extends App {
         echo "::: Hi there!" . __PHP_EOL;
         echo "::: Nice meeting you." . __PHP_EOL;
         echo "::: ..." . __PHP_EOL;
+        echo "::: Done!" . __PHP_EOL;
     }
 
     public static function main( array $args = [] ): void {

@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace learn\web\gym_stone;
 
-if( php_sapi_name() === "cli" ) {
+define( "__PHP_INTERFACE_TYPE", php_sapi_name() );
+
+if( __PHP_INTERFACE_TYPE === "cli" ) {
     define( "__PHP_EOL", "\n");
 }
 else {
@@ -19,11 +21,28 @@ function trigger_error_handler(
 
     $console_type = match( $error_no ) {
 
-        E_USER_NOTICE   => "info",
-        E_USER_WARNING  => "warn",
-        E_USER_ERROR    => "error",
+        E_USER_NOTICE       => "info",
+        E_USER_WARNING      => "warn",
+        E_USER_ERROR        => "error",
 
-        default         => "error"
+        E_ALL               => "error",
+
+        E_ERROR             => "error",
+        E_RECOVERABLE_ERROR => "error",
+
+        E_NOTICE            => "info",
+        E_PARSE             => "warn",
+        E_DEPRECATED        => "warn",
+        E_WARNING           => "warn",
+
+        E_COMPILE_ERROR     => "error",
+        E_COMPILE_WARNING   => "warn",
+
+        E_CORE_WARNING      => "warn",
+        E_CORE_ERROR        => "error",
+
+
+        default             => "error"
     };
 
     $error_message = strtr(
@@ -52,7 +71,6 @@ function trigger_error_handler(
 }
 
 set_error_handler( trigger_error_handler(...) );
-
 
 
 $autoloadFilepath = realpath( __DIR__ . "/../../../../../../vendor/autoload.php");
